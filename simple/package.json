@@ -1,0 +1,24 @@
+{
+  "name": "simple",
+  "version": "1.0.0",
+  "description": "simple vertx verticle",
+  "main": "js-verticle.js",
+  "scripts": {
+    "start": "vertx run js-verticle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddjonline/diy-conf-2019.git"
+  },
+  "keywords": [
+    "vertx"
+  ],
+  "author": "ddjonline",
+  "bugs": {
+    "url": "https://github.com/ddjonline/diy-conf-2019/issues"
+  },
+  "homepage": "https://github.com/ddjonline/diy-conf-2019#readme",
+  "devDependencies": {
+    "vertx3-min": "3.7.0"
+  }
+}
