@@ -3,7 +3,6 @@ package com.follett.fss.diy2019.springboot.hello;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +13,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     @ResponseBody
-    public String sayHello(@RequestParam(name = "name", required = false, defaultValue = "Stranger") String name) {
+    public String sayHello() {
         return "Hello DIYConf2019 (" + counter.incrementAndGet() + ")";
     }
 
