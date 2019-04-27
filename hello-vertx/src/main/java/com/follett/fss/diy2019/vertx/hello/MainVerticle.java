@@ -2,8 +2,9 @@ package com.follett.fss.diy2019.vertx.hello;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import io.vertx.core.AbstractVerticle;
-import io.vertx.ext.web.Router;
+import io.vertx.core.http.HttpMethod;
+import io.vertx.reactivex.core.AbstractVerticle;
+import io.vertx.reactivex.ext.web.Router;
 
 public class MainVerticle extends AbstractVerticle {
 
@@ -12,10 +13,14 @@ public class MainVerticle extends AbstractVerticle {
     @Override
     public void start() {
         Router router = Router.router(vertx);
-        router.get("/hello").handler(context -> context.response().end("Hello DIYConf2019 (" + counter.incrementAndGet() + ")"));
-        router.get("/naptime").handler(context -> context.response().end("your slice of pi is " + pi_digits(20000)));
-        vertx.createHttpServer().requestHandler(router::accept).listen(8080);
+        router.route("/hello").method(HttpMethod.GET).handler(context -> {
+            context.response().end("Hello DIYConf2019 (" + counter.incrementAndGet() + ")");
+        });
+        router.route("/naptime").method(HttpMethod.GET).handler(context -> {
+            context.response().end("your slice of pi is " + pi_digits(20000));
+        });
 
+        vertx.createHttpServer().requestHandler(router::accept).rxListen(8080).subscribe();
     }
 
     private static String pi_digits(int digits) {
