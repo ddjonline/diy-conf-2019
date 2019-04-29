@@ -22,7 +22,9 @@ public class MainVerticle extends AbstractVerticle {
             });
             router.route("/naptime").method(HttpMethod.GET).handler(context -> {
                 vertx.eventBus().rxSend(WorkerVerticle.ADDRESS, 20000).subscribe(result -> {
-                    context.response().end("your slice of pi is " + result.body());
+                    if (!context.response().closed()) {
+                        context.response().end("your slice of pi is " + result.body());
+                    }
                 });
             });
     
