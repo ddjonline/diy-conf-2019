@@ -1,10 +1,11 @@
 {
-  "name": "simple",
+  "name": "polyglot",
   "version": "1.0.0",
   "description": "simple vertx verticle",
   "main": "js-verticle.js",
   "scripts": {
-    "start": "vertx run js-verticle.js"
+    "build": "mvn clean package",
+    "start": "npm run build && vertx run js-verticle.js -cp target/diy-conf-2019-vertx-simple-1.0-SNAPSHOT.jar"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,6 @@
   "devDependencies": {
     "vertx3-min": "3.7.0"
   },
+  "dependencies": {},
   "license": "ISC"
 }
