@@ -16,7 +16,7 @@ public class MainVerticle extends AbstractVerticle {
         router.route("/hello").method(HttpMethod.GET).handler(context -> {
             context.response().end("Hello DIYConf2019 (" + counter.incrementAndGet() + ")");
         });
-        router.route("/naptime").method(HttpMethod.GET).handler(context -> {
+        router.route("/naptime").method(HttpMethod.GET).blockingHandler(context -> {
             context.response().end("your slice of pi is " + pi_digits(20000));
         });
 
