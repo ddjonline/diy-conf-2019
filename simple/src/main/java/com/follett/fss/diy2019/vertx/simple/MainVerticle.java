@@ -11,6 +11,6 @@ public class MainVerticle extends AbstractVerticle {
         router.get("/").handler(context -> {
             context.response().setStatusCode(200).end("Hello, world!");
         });
-        vertx.createHttpServer().requestHandler(router::accept).listen(8080);
+        vertx.createHttpServer().requestHandler(router).listen(8080);
     }
 }
