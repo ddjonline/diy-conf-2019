@@ -6,7 +6,7 @@ const app = express();
 let couter = 1;
 
 function pi_monte_carlo(iterations) {
-    sleep(2);
+    sleep(1);
     let pi = 0;
     let iterator = sequence();
 
